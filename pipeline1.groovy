@@ -15,7 +15,11 @@ pipeline {
          }
           stage ('test') {
             steps {
-               echo 'test completed'
+               mvn sonar:sonar \
+               -Dsonar.projectKey=MYproject \
+               -Dsonar.host.url=http://3.110.114.218:9000 \   
+               -Dsonar.login=301a54f1fadddcf2b2f7cb03320146041555b9f3
+
             }
          }
           stage ('deploy') {
